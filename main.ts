@@ -396,7 +396,7 @@ myShip,
 100,
 true
 )
-info.startCountdown(10)
+info.startCountdown(15)
 game.onUpdateInterval(2000, function () {
     mySat = sprites.createProjectileFromSide(img`
         .........bb.........
