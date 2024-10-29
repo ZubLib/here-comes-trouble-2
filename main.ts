@@ -20,13 +20,13 @@ controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
         . 1 . 
         `, myShip, 0, -150)
 })
+info.onCountdownEnd(function () {
+    game.gameOver(true)
+})
 sprites.onOverlap(SpriteKind.Enemy, SpriteKind.Player, function (sprite, otherSprite) {
     scene.cameraShake(4, 500)
     sprite.destroy(effects.disintegrate, 100)
     info.changeLifeBy(-1)
-})
-info.onScore(20, function () {
-    game.gameOver(true)
 })
 let myRock: Sprite = null
 let mySat: Sprite = null
@@ -396,6 +396,7 @@ myShip,
 100,
 true
 )
+info.startCountdown(10)
 game.onUpdateInterval(2000, function () {
     mySat = sprites.createProjectileFromSide(img`
         .........bb.........
